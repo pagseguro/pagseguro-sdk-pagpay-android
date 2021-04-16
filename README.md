@@ -31,6 +31,10 @@ Para integrar a biblioteca (SDK) em seu projeto, siga os passos abaixo.
 
 ![dependencia](https://user-images.githubusercontent.com/17935625/115026063-6adcb980-9e98-11eb-9b97-3442b7d3555b.png)
 
+5. No settings.gradle adicionar:
+
+![include](https://user-images.githubusercontent.com/17935625/115026906-682e9400-9e99-11eb-8413-6c2f0c9a710c.png)
+
 ___
 ## Instalação
 Saiba como utilizar o PagPay no seu aplicativo Android lendo esta [documentação](https://confluence.intranet.uol.com.br/confluence/pages/viewpage.action?spaceKey=PSPAGDIG&title=Integrando+com+a+wallet+app2app).
