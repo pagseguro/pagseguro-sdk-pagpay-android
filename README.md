@@ -29,9 +29,8 @@ Para integrar a biblioteca (SDK) em seu projeto, siga os passos abaixo.
 3. Arraste a arquivo pagpay.aar para dentro da pasta libs do seu projeto.
 4. Integrar o sdk ao projeto no build.gradle do seu projeto :
 
-   dependencies {
-      implementation project(':pagpay')
-   }
+![dependencia](https://user-images.githubusercontent.com/17935625/115026063-6adcb980-9e98-11eb-9b97-3442b7d3555b.png)
+
 ___
 ## Instalação
 Saiba como utilizar o PagPay no seu aplicativo Android lendo esta [documentação](https://confluence.intranet.uol.com.br/confluence/pages/viewpage.action?spaceKey=PSPAGDIG&title=Integrando+com+a+wallet+app2app).
