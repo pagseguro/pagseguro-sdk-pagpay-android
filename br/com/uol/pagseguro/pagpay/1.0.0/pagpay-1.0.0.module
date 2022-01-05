@@ -11,7 +11,7 @@
   "createdBy": {
     "gradle": {
       "version": "6.1.1",
-      "buildId": "ktweajbxh5fbri4cgnqlebkj2u"
+      "buildId": "yft46knoyrawzahjp7p3c6cui4"
     }
   },
   "variants": [
@@ -24,34 +24,6 @@
         "org.gradle.usage": "java-api"
       },
       "dependencies": [
-        {
-          "group": "androidx.test",
-          "module": "runner",
-          "version": {
-            "requires": "1.2.0"
-          }
-        },
-        {
-          "group": "androidx.test",
-          "module": "rules",
-          "version": {
-            "requires": "1.2.0"
-          }
-        },
-        {
-          "group": "androidx.test.ext",
-          "module": "junit",
-          "version": {
-            "requires": "1.1.1"
-          }
-        },
-        {
-          "group": "androidx.test",
-          "module": "core",
-          "version": {
-            "requires": "1.2.0"
-          }
-        },
         {
           "group": "androidx.databinding",
           "module": "viewbinding",
@@ -85,11 +57,11 @@
         {
           "name": "pagpay-1.0.0.aar",
           "url": "pagpay-1.0.0.aar",
-          "size": 202057,
-          "sha512": "bafd4410648ac9f2aa651c750e632920281c847772c11b7a2ce63f43119396c8e4342e8db76f4fc3235261a76358aad96d0c37cbc32c5e1d8adf2ec3850a9f2f",
-          "sha256": "ea6940ebc549bc0191fe02f263e92c9b4226edd1237804b7fc8f7e39e78f28fb",
-          "sha1": "98768af820c5f88baa90c3bd091b99acce33ac94",
-          "md5": "055a002d8a7fe3733c552374d13c0b7b"
+          "size": 335179,
+          "sha512": "003568753c6b2e0fef5964ea39010da74f39cee2dd8cf4b5a9ed9a03f1075efadf4b6878d642dc770a0b073dd5f253c25a4eca03933f8497e074f369be15c1b3",
+          "sha256": "edfa80bb41149b2cdb9c113335f298c71986ea1e960a76fc519f1a9bc0f4410e",
+          "sha1": "2874858a48bf358c574b9b912b9d20b60d706cff",
+          "md5": "98faa808a28b4f0ecbcc1af3c56b3e4c"
         }
       ]
     },
@@ -102,34 +74,6 @@
         "org.gradle.usage": "java-runtime"
       },
       "dependencies": [
-        {
-          "group": "androidx.test",
-          "module": "runner",
-          "version": {
-            "requires": "1.2.0"
-          }
-        },
-        {
-          "group": "androidx.test",
-          "module": "rules",
-          "version": {
-            "requires": "1.2.0"
-          }
-        },
-        {
-          "group": "androidx.test.ext",
-          "module": "junit",
-          "version": {
-            "requires": "1.1.1"
-          }
-        },
-        {
-          "group": "androidx.test",
-          "module": "core",
-          "version": {
-            "requires": "1.2.0"
-          }
-        },
         {
           "group": "androidx.databinding",
           "module": "viewbinding",
@@ -283,31 +227,17 @@
           "version": {
             "requires": "2.3.0"
           }
-        },
-        {
-          "group": "com.facebook.stetho",
-          "module": "stetho",
-          "version": {
-            "requires": "1.5.0"
-          }
-        },
-        {
-          "group": "com.facebook.stetho",
-          "module": "stetho-okhttp3",
-          "version": {
-            "requires": "1.5.0"
-          }
         }
       ],
       "files": [
         {
           "name": "pagpay-1.0.0.aar",
           "url": "pagpay-1.0.0.aar",
-          "size": 202057,
-          "sha512": "bafd4410648ac9f2aa651c750e632920281c847772c11b7a2ce63f43119396c8e4342e8db76f4fc3235261a76358aad96d0c37cbc32c5e1d8adf2ec3850a9f2f",
-          "sha256": "ea6940ebc549bc0191fe02f263e92c9b4226edd1237804b7fc8f7e39e78f28fb",
-          "sha1": "98768af820c5f88baa90c3bd091b99acce33ac94",
-          "md5": "055a002d8a7fe3733c552374d13c0b7b"
+          "size": 335179,
+          "sha512": "003568753c6b2e0fef5964ea39010da74f39cee2dd8cf4b5a9ed9a03f1075efadf4b6878d642dc770a0b073dd5f253c25a4eca03933f8497e074f369be15c1b3",
+          "sha256": "edfa80bb41149b2cdb9c113335f298c71986ea1e960a76fc519f1a9bc0f4410e",
+          "sha1": "2874858a48bf358c574b9b912b9d20b60d706cff",
+          "md5": "98faa808a28b4f0ecbcc1af3c56b3e4c"
         }
       ]
     }
