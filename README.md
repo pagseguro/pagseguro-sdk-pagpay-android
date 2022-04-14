@@ -1,37 +1,79 @@
-![LogoPagSeguro](https://user-images.githubusercontent.com/68859160/114778858-c77e8e00-9d4b-11eb-8c67-e97eade6534f.png)
-
-
 # PagPay Android SDK
----
 ## Introdução
-O PagPay é o produto do PagSeguro que permite aos vendedores utilizar o app PagBank como método de pagamento no checkout do seu próprio aplicativo. Este produto confere mais segurança aos vendedores devido aos padrões de validação de conta e cartões de crédito, adotados pelo PagBank.
+O Pagar com PagBank é o produto do PagSeguro que permite aos vendedores utilizar o app PagBank como método de pagamento no checkout do seu próprio aplicativo. Este produto confere mais segurança aos vendedores devido aos padrões de validação de conta e cartões de crédito, adotados pelo PagBank.
+
+## SDK
+O SDK disponibiliza um botão de pagamentos que facilita a integração do Merchant, através de suas credenciais pode enviar os dados do seu pedido e nosso SDK irá realizar a integração com nossos serviços.
 
 ---
-## Conceitos Básicos
 
-Antes de fazer uso da biblioteca é importante que o desenvolvedor realize alguns procedimentos básicos, além de assimilar alguns conceitos importantes para o correto funcionamento de sua aplicação. É necessário ter em mãos o token da conta PagSeguro que será configurado como vendedor (Seller), tal token pode ser obtido no ibanking do PagSeguro.
+## Como Funciona
 
----
+### Conceitos
+
+Segue alguns termos usados nessa documentação:
+
+**Integrador**: O desenvolvedor que vai usar o SDK em seu projeto para que possa oferecer para seus clientes o pagamento usando o PagBank
+
+**Pagador**: O usuário que quer comprar algo usando o app do Integrador
+
+O integrador que tem interesse em oferecer pagamento via PagBank adiciona o SDK no seu projeto e com isso disponibiliza um botão no seu app que redireciona o pagamento para o app do PagBank via um deeplink. Dentro do app do PagBank o usuário seleciona a forma de pagamento e prossegue com o pagamento normalmente. Essa etapa dentro do app PagBank é invísivel para o integrador.
+
 ## Pré-requisitos
-* Para utilizar o PagPay, é necessário que o seu aplicativo seja desenvolvido em Kotlin ou Java.
+Antes de fazer uso da biblioteca é importante que o integrador realize alguns procedimentos básicos. É necessário ter em mãos o token da conta PagSeguro que será configurado como vendedor (Seller), tal token pode ser obtido no ibanking do PagSeguro.
+
+### Credenciais de Autenticação
+As soluções públicas do PagSeguro requerem autenticação e através dela identificamos e autorizamos o integrador a utilizar nossas APIs e seus recursos, bem como eventuais configurações adicionais.
+
+
+**Primeiro passo**: Ter uma conta PagSeguro
+Para criar uma conta no nosso ambiente de Sandbox, acesse o link https://acesso.pagseguro.uol.com.br/sandbox
+
+**Segundo passo**: Criar uma Aplicação para utilizar o pagar com PagBank.
+acesse o link: https://dev.pagseguro.uol.com.br/reference/connect-create-client
 
 ---
+
 ## Integrando o PagPay
 Para integrar a biblioteca (SDK) em seu projeto, siga os passos abaixo.
 1. Faça o download da versão mais recente da biblioteca.
 2. Abra o projeto do seu aplicativo pelo Android Studio.
-3. Arraste a arquivo pagpay.aar para dentro da pasta libs do seu projeto.
+3. Arraste a arquivo .aar para dentro da pasta libs do seu projeto.
 4. Integrar o sdk ao projeto no build.gradle do seu projeto :
 
-![dependencia](https://user-images.githubusercontent.com/17935625/115026063-6adcb980-9e98-11eb-9b97-3442b7d3555b.png)
-
-5. No settings.gradle adicionar:
-
-![include](https://user-images.githubusercontent.com/17935625/115026906-682e9400-9e99-11eb-8413-6c2f0c9a710c.png)
+```
+implementation files('libs/pagpay-1.0.0.aar')
+```
 
 ___
 ## Instalação
-Saiba como utilizar o PagPay no seu aplicativo Android lendo esta [documentação](https://confluence.intranet.uol.com.br/confluence/pages/viewpage.action?spaceKey=PSPAGDIG&title=Integrando+com+a+PagPay+app2app).
+Para utilizar o botão no app é possível declarar no layout:
+```xml
+<com.pagpay.checkout.presentation.button.PagPayPaymentButton
+                android:id="@+id/btn_pagbank_yellow"
+                app:colorScheme="yellow"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+```
+
+No código
+
+```java
+val payWithPagPayClient = PagPay.newBuilder()
+    .merchantInfo(createMerchantInfoRequest())
+    .paymentRequest(createPaymentRequest(), this)
+    .build()
+
+payWithPagPayClient.redirectPagBank(this, Env.QA)
+
+override fun onSuccessToRedirect(deepLinkCode: String) {
+}
+
+override fun onErrorToRedirect(error: ErrorApi) {
+}
+```
+
+Primeiramente se cria um objeto do tipo `PagPay` usando um `PagPay.newBuilder()`. Os tipos `MerchantInfoRequest` e `PaymentRequest` estão sendo criados por funções utilitárias que preenchem esses tipos, que basicamente são [VOs](https://en.wikipedia.org/wiki/Value_object). Após criado o objeto `PagPay` se chama o método `redirectPagBank`, o this é uma referência à classe que implementa a interface `CheckoutContract.CallBack`. Importante notar que o método `redirectPagbank` por baixo faz uma chamada de networking e se chamada da thread principal causa uma exceção, esse método precisa ser chamado em outra thread.
 
 ___
 ## Copyright
