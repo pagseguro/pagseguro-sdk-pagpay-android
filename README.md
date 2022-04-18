@@ -20,7 +20,8 @@ Segue alguns termos usados nessa documentação:
 O integrador que tem interesse em oferecer pagamento via PagBank adiciona o SDK no seu projeto e com isso disponibiliza um botão no seu app que redireciona o pagamento para o app do PagBank via um deeplink. Dentro do app do PagBank o usuário seleciona a forma de pagamento e prossegue com o pagamento normalmente. Essa etapa dentro do app PagBank é invísivel para o integrador.
 
 ## Pré-requisitos
-Antes de fazer uso da biblioteca é importante que o integrador realize alguns procedimentos básicos. É necessário ter em mãos o token da conta PagSeguro que será configurado como vendedor (Seller), tal token pode ser obtido no ibanking do PagSeguro.
+* API mínima do Android 21
+* É necessário ter em mãos o token da conta PagSeguro que será configurado como vendedor (Seller), tal token pode ser obtido no ibanking do PagSeguro.
 
 ### Credenciais de Autenticação
 As soluções públicas do PagSeguro requerem autenticação e através dela identificamos e autorizamos o integrador a utilizar nossas APIs e seus recursos, bem como eventuais configurações adicionais.
@@ -74,6 +75,8 @@ override fun onErrorToRedirect(error: ErrorApi) {
 ```
 
 Primeiramente se cria um objeto do tipo `PagPay` usando um `PagPay.newBuilder()`. Os tipos `MerchantInfoRequest` e `PaymentRequest` estão sendo criados por funções utilitárias que preenchem esses tipos, que basicamente são [VOs](https://en.wikipedia.org/wiki/Value_object). Após criado o objeto `PagPay` se chama o método `redirectPagBank`, o this é uma referência à classe que implementa a interface `CheckoutContract.CallBack`. Importante notar que o método `redirectPagbank` por baixo faz uma chamada de networking e se chamada da thread principal causa uma exceção, esse método precisa ser chamado em outra thread.
+
+Para mais informações de uso ler a [documentação](docs/HOW_TO_USE.md).
 
 ___
 ## Copyright
