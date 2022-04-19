@@ -13,11 +13,42 @@ O `PagPayPaymentButton` tem um atributo chamado `colorScheme` que aceita cores p
 
 Segue a lista de possíveis valores e sua visualização:
 
-* `app:colorScheme="yellow"` ![](images/example_yellow_button.png)
-* `app:colorScheme="light_green"` ![](images/example_light_green_button.png)
-* `app:colorScheme="green"` ![](images/example_green_button.png)
-* `app:colorScheme="dark"` ![](images/example_dark_button.png)
-* `app:colorScheme="light"` ![](images/example_light_button.png)
+### Yellow
+![](images/example_yellow_button.png)
+
+```xml
+app:colorScheme="yellow"
+```
+
+### Light Green
+![](images/example_light_green_button.png)
+
+```xml
+app:colorScheme="light_green"
+```
+
+### Green
+![](images/example_green_button.png)
+
+```xml
+app:colorScheme="green"
+```
+
+### Dark
+![](images/example_dark_button.png)
+
+```xml
+app:colorScheme="dark"
+```
+
+### Light
+![](images/example_light_button.png)
+
+```xml
+app:colorScheme="light"
+```
+
+---
 
 ## Parâmetros de entrada das classes da requisição
 
