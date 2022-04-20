@@ -117,3 +117,21 @@ Para mais informações de qual payload é enviado via url de notificação aces
 2. Você pode através do menu "Extratos e Relatórios" 
 3. Acessar a opção "Extrato de Transações" e identificar a transação que deseja realizar o estorno. 
 4. Ao acessar os detalhes da transação a opção de estorno estará disponível.
+
+---
+
+## Licença
+
+Copyright 2022 PagSeguro Internet LTDA
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
