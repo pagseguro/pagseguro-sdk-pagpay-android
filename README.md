@@ -102,7 +102,7 @@ Temos dois ambientes disponíveis, um para realizar os testes de integração e 
 | Sandbox | `payWithPagPayClient.redirectPagBank(this, Env.SANDBOX)` |
 | Produção | `payWithPagPayClient.redirectPagBank(this, Env.PROD)` |
 
-Para mais informações siga essa [documentação](/docs/SANDBOX.md).
+Para mais informações siga essa [documentação](https://dev.pagseguro.uol.com.br/reference/pagando-um-pedido-com-deeplink-em-sandbox).
 ​
 ## Verificação do status do pagamento
 ​
