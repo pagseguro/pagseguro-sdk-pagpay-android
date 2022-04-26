@@ -22,6 +22,7 @@ Segue alguns termos usados nessa documentação:
 
 **Pagador**: O usuário que quer comprar algo usando o app do Integrador
 ​
+
 O integrador que tem interesse em oferecer pagamento via PagBank adiciona o SDK no seu projeto e com isso disponibiliza um botão no seu app que redireciona o pagamento para o app do PagBank via um deeplink. Dentro do app do PagBank o usuário seleciona a forma de pagamento e prossegue com o pagamento normalmente. Essa etapa dentro do app PagBank é invísivel para o integrador.
 ​
 ### Credenciais de Autenticação
@@ -55,42 +56,12 @@ implementation files('libs/pagpay-1.0.0.aar')
 ___
 ​
 ## Utilização
-​
-Para utilizar o botão no seu app realize a declaração em seu layout ([documentação](/docs/HOW_TO_USE.md) sobre como alterar as cores)
-​
-```xml
-<com.pagpay.checkout.presentation.button.PagPayPaymentButton
-                android:id="@+id/btn_pagbank_yellow"
-                app:colorScheme="yellow"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-```
 
-Realizando chamada do serviço:
-​
-```java
-val payWithPagPayClient = PagPay.newBuilder()
-    .merchantInfo(createMerchantInfoRequest())
-    .paymentRequest(createPaymentRequest(), this)
-    .build()
-​
-payWithPagPayClient.redirectPagBank(this, Env.PROD)
-​
-override fun onSuccessToRedirect(deepLinkCode: String) {
-}
-​
-override fun onErrorToRedirect(error: ErrorApi) {
-}
-```
-​
-1 - Primeiramente se cria um objeto do tipo `PagPay` usando um `PagPay.newBuilder()`.
-​
+* [Como usar os botões](/docs/BUTTONS.md)
+* [Como criar uma requisição de pagamento](/docs/HOW_TO_USE.md)
 
-2 - Os tipos `MerchantInfoRequest` e `PaymentRequest` estão sendo criados por funções utilitárias que preenchem esses tipos, que basicamente são [VOs](https://en.wikipedia.org/wiki/Value_object). Para entender o que é o objeto criado veja na [documentação](/docs/HOW_TO_USE.md).
-​
+---
 
-3 - Após criado o objeto `PagPay` se chama o método `redirectPagBank`, o this é uma referência à classe que implementa a interface `CheckoutContract.CallBack`. Importante notar que o método `redirectPagbank` por baixo faz uma chamada de networking e se chamada da thread principal causa uma exceção, esse método precisa ser chamado em outra thread.
-​​
 ## Ambientes disponíveis
 ​
 Temos dois ambientes disponíveis, um para realizar os testes de integração e o de produção.
