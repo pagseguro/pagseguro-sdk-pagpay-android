@@ -73,8 +73,7 @@ Temos dois ambientes disponíveis, um para realizar os testes de integração e 
 | Sandbox | `payWithPagPayClient.redirectPagBank(this, Env.SANDBOX)` |
 | Produção | `payWithPagPayClient.redirectPagBank(this, Env.PROD)` |
 
-Para mais informações siga essa [documentação](https://dev.pagseguro.uol.com.br/reference/pagando-um-pedido-com-deeplink-em-sandbox).
-​
+:warning: Depois da criação do pedido no ambiente de `SANDBOX`, você pode simular o pagamento seguindo essa [documentação](https://dev.pagseguro.uol.com.br/reference/pagando-um-pedido-com-deeplink-em-sandbox) :warning:​
 ## Verificação do status do pagamento
 ​
 O PagSeguro poderá enviar notificações via webhook para seu ambiente sempre que um evento (uma mudança de status de transação) acontecer, possibilitando a automação de seus processos de gestão de vendas.
@@ -89,20 +88,23 @@ Para mais informações de qual payload é enviado via url de notificação aces
 3. Acessar a opção "Extrato de Transações" e identificar a transação que deseja realizar o estorno. 
 4. Ao acessar os detalhes da transação a opção de estorno estará disponível.
 
----
+Para mais informações sobre outra forma de integração acesse nossa [documentação](https://dev.pagseguro.uol.com.br/reference/criando-um-pedido-com-deeplink-pagar-com-pagbank)
 
-## Licença
+<br>
 
-Copyright 2022 PagSeguro Internet LTDA
+Licença
+=======
 
-Licensed under the Apache License, Version 2.0 (the "License");
-you may not use this file except in compliance with the License.
-You may obtain a copy of the License at
+    Copyright 2022 PagSeguro Internet LTDA.
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
 
     http://www.apache.org/licenses/LICENSE-2.0
 
-Unless required by applicable law or agreed to in writing, software
-distributed under the License is distributed on an "AS IS" BASIS,
-WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-See the License for the specific language governing permissions and
-limitations under the License.
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
