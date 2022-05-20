@@ -37,7 +37,7 @@ class MainActivity : AppCompatActivity(), CheckoutContract.CallBack {
             // Ela trava a thread além de receber a exceção NetworkOnMainThreadException
             GlobalScope.launch {
                 withContext(Dispatchers.IO) {
-                    payWithPagPayClient.redirectPagBank(this@MainActivity, Env.QA)
+                    payWithPagPayClient.redirectPagBank(this@MainActivity, Env.SANDBOX)
                 }
             }
         }
