@@ -43,14 +43,10 @@ ___
 - Android 5.0+ (API 21)
 ​
 ## Instalação
-Para integrar a biblioteca (SDK) em seu projeto, siga os passos abaixo.
-1. Faça o download da versão mais recente da biblioteca.
-2. Abra o projeto do seu aplicativo pelo Android Studio.
-3. Arraste a arquivo .aar para dentro da pasta libs do seu projeto.
-4. Integrar o sdk ao projeto no build.gradle do seu projeto :
-​
+Para integrar a biblioteca (SDK) em seu projeto adicione a seguinte linha no `build.gradle` do seu app:
+
 ```
-implementation files('libs/pagpay-1.0.0.aar')
+implementation 'br.com.uol.pagseguro:pagpay:1.0.0'
 ```
 ​
 ___
