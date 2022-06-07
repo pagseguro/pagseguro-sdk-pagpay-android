@@ -75,6 +75,7 @@ Temos dois ambientes disponíveis, um para realizar os testes de integração e 
 O PagSeguro poderá enviar notificações via webhook para seu ambiente sempre que um evento (uma mudança de status de transação) acontecer, possibilitando a automação de seus processos de gestão de vendas.
 Para que isso aconteça basta atribuir suas urls de notificação no atributo `notificationUrls` do objeto `PaymentRequest`
 ​
+
 Para mais informações de qual payload é enviado via url de notificação acesse o [link](https://dev.pagseguro.uol.com.br/reference/charge-webhook) para mais informações.
 
 ## Como realizar o estorno um pagamento recebido?

@@ -16,7 +16,7 @@
 fun createMerchantInfoRequest(): MerchantInfoRequest {
     return MerchantInfoRequest(
         appName = "SDK App example",
-        clientId = "d40f367b-7b93-4d38-ba34-b97ccdd2b3cf"
+        clientId = "SEU_CLIENT_ID_AQUI"
     )
 }
 
@@ -43,13 +43,11 @@ fun createPaymentRequest(): PaymentsRequest {
         )
     )
 
-    val customer = Customer("André Luis dos Santos", "anluis@pagseguro.com", "32685508600")
     val amount = Amount(value = 5500, currency = "BRL")
 
     return PaymentsRequest(
         referenceId = "PEDIDO_123",
         amount = amount,
-        customer = customer,
         shipping = shipping,
         notificationUrls = notificationUrls,
         items = items
