@@ -39,6 +39,7 @@ fun createPaymentRequest(): PaymentsRequest {
         amount = amount,
         shipping = shipping,
         notificationUrls = notificationUrls,
-        items = items
+        items = items,
+        redirectUrl = "https://meusite.com/pedidos/redirect"
     )
 }

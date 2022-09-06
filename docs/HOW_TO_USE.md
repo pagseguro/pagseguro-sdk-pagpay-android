@@ -104,3 +104,4 @@ override fun onErrorToRedirect(error: ErrorApi) {
 |     └──value        | Int (min = 1, max = 999999900)  |     Sim     |                                            Valor do pedido                                            |
 |     └──currency     |             String              |     Sim     |                      Sigla da moeda que representa o valor do pedido. Fixo "BRL"                      |
 |    notificationUrls |         Array of String         |     Sim     | Objeto contendo as urls que receberão as notificações do pedido (por ora, somente aceitamos uma url.) |
+|    redirectUrl      |             String              |     Sim     | URL onde o usuário será redirecionado após o pagamento ser efetuado |

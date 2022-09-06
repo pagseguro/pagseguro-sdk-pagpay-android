@@ -49,6 +49,5 @@ class MainActivity : AppCompatActivity(), CheckoutContract.CallBack {
 
     override fun onSuccessToRedirect(deepLinkCode: String) {
         Snackbar.make(mainView, "Sucesso: $deepLinkCode", LENGTH_SHORT).show()
-
     }
 }
