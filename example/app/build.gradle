@@ -32,7 +32,8 @@ android {
 }
 
 dependencies {
-    implementation 'br.com.uol.pagseguro:pagpay:1.0.0'
+
+    implementation 'br.com.uol.pagseguro:pagpay:1.1.1'
 
     implementation 'androidx.core:core-ktx:1.7.0'
     implementation 'androidx.appcompat:appcompat:1.4.1'
