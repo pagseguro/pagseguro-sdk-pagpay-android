@@ -16,7 +16,7 @@
 fun createMerchantInfoRequest(): MerchantInfoRequest {
     return MerchantInfoRequest(
         appName = "SDK App example",
-        clientId = "d40f367b-7b93-4d38-ba34-b97ccdd2b3cf"
+        clientId = "SEU_CLIENT_ID_AQUI"
     )
 }
 
@@ -52,7 +52,8 @@ fun createPaymentRequest(): PaymentsRequest {
         customer = customer,
         shipping = shipping,
         notificationUrls = notificationUrls,
-        items = items
+        items = items,
+        redirectUrl = "https://meusite.com/pedidos/redirect"
     )
 }
 ```
@@ -104,4 +105,4 @@ override fun onErrorToRedirect(error: ErrorApi) {
 |     └──value        | Int (min = 1, max = 999999900)  |     Sim     |                                            Valor do pedido                                            |
 |     └──currency     |             String              |     Sim     |                      Sigla da moeda que representa o valor do pedido. Fixo "BRL"                      |
 |    notificationUrls |         Array of String         |     Sim     | Objeto contendo as urls que receberão as notificações do pedido (por ora, somente aceitamos uma url.) |
-|    redirectUrl      |             String              |     Sim     | URL onde o usuário será redirecionado após o pagamento ser efetuado |
+|    redirectUrl      |             String              |     Não     |                      URL onde o usuário será redirecionado após o pagamento ser efetuado              |
