@@ -46,7 +46,7 @@ ___
 Para integrar a biblioteca (SDK) em seu projeto adicione a seguinte linha no `build.gradle` do seu app:
 
 ```
-implementation 'br.com.uol.pagseguro:pagpay:1.0.0'
+implementation 'br.com.uol.pagseguro:pagpay:1.1.1'
 ```
 ​
 ___
