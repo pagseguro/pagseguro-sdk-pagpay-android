@@ -25,17 +25,30 @@ Segue alguns termos usados nessa documentação:
 
 O integrador que tem interesse em oferecer pagamento via PagBank adiciona o SDK no seu projeto e com isso disponibiliza um botão no seu app que redireciona o pagamento para o app do PagBank via um deeplink. Dentro do app do PagBank o usuário seleciona a forma de pagamento e prossegue com o pagamento normalmente. Essa etapa dentro do app PagBank é invísivel para o integrador.
 ​
+## Pré-requisitos
+
 ### Credenciais de Autenticação
 As soluções públicas do PagSeguro requerem autenticação e através dela identificamos e autorizamos o integrador a utilizar nossas APIs e seus recursos, bem como eventuais configurações adicionais.
-​
 
 **Primeiro passo**: Ter uma conta PagSeguro
-​
-- Para criar uma conta no nosso ambiente de Sandbox [acesse o link](https://acesso.pagseguro.uol.com.br/sandbox)
-​
+
+1. Para criar uma conta no nosso ambiente [acesse o link](https://cadastro.pagseguro.uol.com.br/)
+
+2. Logo depois realize o login no ambiente de Sandbox [acesse o link](https://acesso.pagseguro.uol.com.br/sandbox)
+
+3. Depois da criação da conta e autenticação em Sandbox, você deve se encontrar nessa página [acesse o link](https://sandbox.pagseguro.uol.com.br/transacoes.html)
+
+4. Se os passos acima foram realizados com sucesso, você já tem uma conta em Sandbox pronta para realizar testes.
 
 **Segundo passo**: Criar uma aplicação para utilizar o pagar com PagBank.
-- Mais informações sobre criação de aplicação [acesse o link](https://dev.pagseguro.uol.com.br/reference/connect-create-client)
+
+1. Para obter o token de sandbox, acesse nossa página de Sandbox.
+
+2. Após realizar o login, localize o menu `Perfis de Integração` e clique em `Vendedor`. O token de sandbox estará disponível na seção `Credenciais`.
+
+3. Com o token em mãos, já é possível criar uma aplicação em Sandbox [acesse o link](https://dev.pagseguro.uol.com.br/reference/connect-create-client)
+
+4. Com a sua aplicação criada com sucesso em Sandbox, guarde o campo `client_id` que foi retornado na resposta do serviço, pois é com esse campo que iniciaremos os testes com a SDK.
 ​
 ___
 ​
@@ -64,12 +77,32 @@ Temos dois ambientes disponíveis, um para realizar os testes de integração e 
 
 :warning: Para realizar a troca do ambiente, é só mudar o parâmetro no método `redirectPagBank` que é usado no momento da requisição
 ​
-| Ambiente | Parâmetro|
-|----------|----------|
-| Sandbox | `payWithPagPayClient.redirectPagBank(this, Env.SANDBOX)` |
-| Produção | `payWithPagPayClient.redirectPagBank(this, Env.PROD)` |
+| Ambiente | Parâmetro                                                |
+|----------|----------------------------------------------------------|
+| Sandbox  | `payWithPagPayClient.redirectPagBank(this, Env.SANDBOX)` |
+| Produção | `payWithPagPayClient.redirectPagBank(this, Env.PROD)`    |
 
-:warning: Depois da criação do pedido no ambiente de `SANDBOX`, você pode simular o pagamento seguindo essa [documentação](https://dev.pagseguro.uol.com.br/reference/pagando-um-pedido-com-deeplink-em-sandbox) :warning:​
+___
+
+## Simular pagamento no ambiente de integração
+
+A SDK possui um método de callback chamado `onSuccessToRedirect` que é executado quando o redirecionamento para o aplicativo PagBank é realizado com sucesso. Esse método possui um parâmetro chamado `deepLinkCode`.
+
+Trecho de código de exemplo do callback:
+```kotlin
+    override fun onErrorToRedirect(error: ErrorApi) {
+        Snackbar.make(mainView, error.message ?: "SDK internal error", LENGTH_SHORT).show()
+    }
+
+    override fun onSuccessToRedirect(deepLinkCode: String) {
+        Snackbar.make(mainView, "Sucesso: $deepLinkCode", LENGTH_SHORT).show()
+    }
+```
+
+> :warning: Para mais detalhes de como simular um pagamento no ambiente de Sandbox [acesse o link](docs/SIMULATE_PAYMENT.md)
+
+> :information_source: Aplicativo com implementação de exemplo [acesse o link](example/)
+
 ## Verificação do status do pagamento
 ​
 O PagSeguro poderá enviar notificações via webhook para seu ambiente sempre que um evento (uma mudança de status de transação) acontecer, possibilitando a automação de seus processos de gestão de vendas.
@@ -78,7 +111,21 @@ Para que isso aconteça basta atribuir suas urls de notificação no atributo `n
 
 Para mais informações de qual payload é enviado via url de notificação acesse o [link](https://dev.pagseguro.uol.com.br/reference/charge-webhook) para mais informações.
 
-## Como realizar o estorno um pagamento recebido?
+___
+
+## Ambiente de Produção
+
+Depois de todos os testes e validações realizados no ambiente de Sandbox, a sua integração com a SDK do pagar com PagBank está apta para transacionar em Produção.
+
+**Gerar token do ambiente de produção:**
+
+1. Para obter o token de produção acesse sua conta atráves do [iBanking](https://acesso.pagseguro.uol.com.br/).
+2. Após realizar o login, localize `Vendas Online` e clique em `Integrações`.
+3. Clique em `Gerar token`, você receberá o token pelo e-mail.
+4. Realize o mesmo procedimento de criação de uma aplicação que realizou em sandbox, porém, agora em produção.
+5. Para mais informações [acesse o link](https://dev.pagseguro.uol.com.br/reference/connect-intro)
+
+**Como realizar o estorno de um pagamento recebido?**
 
 1. Acessando o iBanking no [link](https://acesso.pagseguro.uol.com.br/).
 2. Você pode através do menu "Extratos e Relatórios" 
